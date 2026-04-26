@@ -61,7 +61,7 @@ const Hero = () => {
 
             <FloatingCard className="-top-2 right-4" icon={<MapPin className="h-4 w-4 text-primary" />} title="Live Tracking" sub="Real-time Updates" />
             <FloatingCard className="bottom-24 -left-2" icon={<FileCheck className="h-4 w-4 text-primary" />} title="Auto BL Processing" sub="AI-Powered" />
-            <FloatingCard className="-bottom-2 right-12" icon={<BadgeCheck className="h-4 w-4 text-emerald-500" />} title="Shipment Status" sub="Stay Informed" />
+            <FloatingCard className="-bottom-2 right-12" icon={<BadgeCheck className="h-4 w-4" style={{ color: "hsl(var(--cat-green))" }} />} title="Shipment Status" sub="Stay Informed" />
           </div>
         </div>
       </div>
