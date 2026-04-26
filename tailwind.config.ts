@@ -57,6 +57,22 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        navy: {
+          DEFAULT: "hsl(var(--navy))",
+          deep: "hsl(var(--navy-deep))",
+        },
+        "primary-glow": "hsl(var(--primary-glow))",
+        "surface-soft": "hsl(var(--surface-soft))",
+      },
+      backgroundImage: {
+        "gradient-primary": "var(--gradient-primary)",
+        "gradient-navy": "var(--gradient-navy)",
+        "gradient-cta": "var(--gradient-cta)",
+      },
+      boxShadow: {
+        soft: "var(--shadow-soft)",
+        card: "var(--shadow-card)",
+        float: "var(--shadow-float)",
       },
       borderRadius: {
         lg: "var(--radius)",
