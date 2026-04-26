@@ -34,7 +34,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
       <div className="container flex h-20 items-center justify-between">
         <Link to="/" className="flex items-center">
-          <img src={logo} alt="Shipsoft — Empowered by Software Innovation" className="h-17 w-auto" />
+          <img src={logo} alt="Shipsoft — Empowered by Software Innovation" className="h-16 w-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-9">
