@@ -1,68 +1,75 @@
 import PageShell from "@/components/site/PageShell";
 import PageHero from "@/components/site/PageHero";
-import { Phone, Users, Truck, Warehouse, Bus, DollarSign, Package, ShoppingCart, Briefcase, Award, Wrench, Clock, Layers } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Users, Truck, Warehouse, Bus, DollarSign, Package, ShoppingCart,
+  Award, Wrench, Settings, Link2, Server, Headphones,
+  Calendar, Globe, ShieldCheck, BarChart3, Rocket, Clock, ArrowRight,
+} from "lucide-react";
+import { Link } from "react-router-dom";
+
+const stats = [
+  { icon: Calendar, value: "10+", label: "Years Experience", sub: "Delivering reliable solutions since 2014" },
+  { icon: Users, value: "100+", label: "Clients Worldwide", sub: "Trusted by companies across the globe" },
+  { icon: Globe, value: "25+", label: "Countries Served", sub: "Global reach with local understanding" },
+  { icon: ShieldCheck, value: "99.9%", label: "System Reliability", sub: "High performance, round the clock" },
+];
 
 const services = [
-  { icon: Users, title: "Customer Relationship Management", desc: "Complete customer visibility with real-time tracking of shipment status and history.", color: "cat-blue" },
-  { icon: Truck, title: "Freight Management System", desc: "Shipsoft Solutions with its best-built freight management software are now pioneers.", color: "cat-violet" },
-  { icon: Warehouse, title: "Warehouse Management System", desc: "Shipsoft's WMS is a comprehensive, customizable software solution that offers total visibility.", color: "cat-green" },
-  { icon: Bus, title: "Transport Management System", desc: "City Master Price, Zone Master Price - city and zone level pricing you can create and maintain.", color: "cat-pink" },
-  { icon: DollarSign, title: "Accounts Management System", desc: "The entire financial requirements of the enterprise can be managed with the module.", color: "cat-orange" },
-  { icon: Package, title: "Distribution Management System", desc: "Designed to serve dealers & agency companies with web-based, lightweight access.", color: "cat-purple" },
-  { icon: ShoppingCart, title: "e-Commerce", desc: "Operate your own dedicated online shop connected to WMS, freight & transport modules.", color: "cat-blue" },
+  { icon: Users, title: "Customer Relationship Management", desc: "Build stronger relationships and manage customer interactions seamlessly.", to: "/modules/crm", color: "cat-blue" },
+  { icon: Truck, title: "Freight Management System", desc: "Streamline freight operations from booking to delivery with real-time visibility.", to: "/modules/freight", color: "cat-violet" },
+  { icon: Warehouse, title: "Warehouse Management System", desc: "Optimize warehouse operations with inventory accuracy and real-time tracking.", to: "/modules/warehouse", color: "cat-green" },
+  { icon: Bus, title: "Transport Management System", desc: "Manage fleet, routes, pricing and compliance with ease and efficiency.", to: "/modules/transport", color: "cat-pink" },
+  { icon: DollarSign, title: "Accounts Management System", desc: "Automate financial operations and maintain accuracy across all transactions.", to: "/modules/accounts", color: "cat-orange" },
+  { icon: Package, title: "Distribution Management System", desc: "Ensure efficient order fulfilment and last-mile delivery with full visibility.", to: "/modules/distribution", color: "cat-purple" },
+  { icon: ShoppingCart, title: "e-Commerce", desc: "Connect your online store with logistics operations for seamless order processing.", to: "/modules/distribution", color: "cat-blue" },
+];
+
+const consulting = [
+  { icon: Settings, title: "Enterprise Implementation", desc: "End-to-end implementation tailored to your business needs." },
+  { icon: Link2, title: "System Integration", desc: "Seamless integration with existing systems and third-party tools." },
+  { icon: Server, title: "Infrastructure Strategy", desc: "Future-ready infrastructure designed for scalability and security." },
+  { icon: Headphones, title: "Outsourcing Support", desc: "Flexible engagement models to support your business growth." },
 ];
 
 const reasons = [
-  { icon: Briefcase, title: "Expert Team in Logistics Software", desc: "A skilled development team adept in creating Logistics and Supply Chain Management Software in Singapore, leading renowned solution applications." },
-  { icon: Award, title: "Cost-Effective, Quality IT Consulting", desc: "Our cost-effective solutions enhance client productivity, driven by principles of top-quality IT consulting with a proven track record." },
-  { icon: Clock, title: "Decade-Long IT Expertise", desc: "With a decade of expertise, we serve companies relying on Information Technology for success in a competitive environment." },
-  { icon: Layers, title: "Advanced, Enterprise-Grade Solutions", desc: "Shipsoft Solutions delivers enterprise-grade software for logistics, combining technological advancements and a passion for excellence." },
+  { icon: Award, title: "Expertise in Logistics Tech", desc: "Deep industry knowledge built for logistics and supply chain." },
+  { icon: BarChart3, title: "Scalable & Cost-Effective", desc: "Solutions that grow with your business without compromising quality." },
+  { icon: Clock, title: "10+ Years Experience", desc: "A decade of delivering innovation, reliability and measurable results." },
+  { icon: ShieldCheck, title: "Enterprise-Grade Solutions", desc: "Secure, reliable and high-performance solutions for modern enterprises." },
 ];
 
 const About = () => (
   <PageShell>
-    <PageHero eyebrow="OUR COMPANY" title="About Shipsoft" subtitle="A Singapore-based IT company specializing in cutting-edge software for logistics and supply chain management." />
+    <PageHero
+      eyebrow="ABOUT US"
+      title="About Shipsoft"
+      subtitle="A Singapore-based IT company specializing in cutting-edge software for logistics and supply chain management. We empower businesses with innovative, scalable and reliable digital solutions."
+    />
 
-    <section className="py-20 lg:py-24 bg-background">
-      <div className="container grid lg:grid-cols-3 gap-12">
-        <div className="lg:col-span-2">
-          <div className="text-xs font-bold tracking-[0.2em] text-primary mb-4">ABOUT THE COMPANY</div>
-          <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-6">About Shipsoft Solutions</h2>
+    <section className="py-20 lg:py-24 bg-surface-soft">
+      <div className="container grid lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <div className="text-xs font-bold tracking-[0.2em] text-primary mb-4">WHO WE ARE</div>
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-6">Driving Innovation in Logistics Technology</h2>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              Shipsoft Solutions is a Singapore-based IT company specializing in cutting-edge software for logistics and supply chain management. Our mission is to deliver innovative, cost-effective digital solutions that empower businesses to optimize operations and drive growth.
+              Shipsoft Solutions is a Singapore-based IT company focused on building next-generation logistics and supply chain software that drives efficiency, visibility, and growth.
             </p>
             <p>
-              We support organizations that rely on technology today, as well as those transitioning toward a fully digital environment, helping them thrive in an increasingly competitive and fast-paced global market.
+              Our mission is to deliver innovative, cost-effective digital solutions that empower businesses to optimize operations and stay ahead in a rapidly evolving world.
             </p>
           </div>
         </div>
-        <div className="bg-gradient-to-br from-primary to-primary-glow rounded-2xl p-8 text-primary-foreground shadow-float h-fit">
-          <div className="text-xs font-bold tracking-[0.2em] mb-4 opacity-90">REACH OUT</div>
-          <Phone className="h-10 w-10 mb-4 opacity-90" />
-          <div className="text-3xl font-bold mb-2">+971 43 704077</div>
-          <div className="text-sm opacity-90">Get in touch with our experts today and discover how Shipsoft can transform your logistics operations.</div>
-        </div>
-      </div>
-    </section>
-
-    <section className="py-20 lg:py-24 bg-surface-soft">
-      <div className="container">
-        <div className="max-w-3xl mb-14">
-          <div className="text-xs font-bold tracking-[0.2em] text-primary mb-4">WHAT WE DO</div>
-          <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-4">We offer a wide range of services.</h2>
-          <p className="text-muted-foreground">
-            Shipsoft provides the best logistics software solutions covering every single aspect and operational element involved in logistics.
-          </p>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((s) => (
-            <div key={s.title} className="bg-card rounded-2xl p-6 shadow-card hover:shadow-float transition-all hover:-translate-y-1 border border-border/50">
-              <div className="h-12 w-12 rounded-xl flex items-center justify-center mb-5" style={{ backgroundColor: `hsl(var(--${s.color}) / 0.12)` }}>
-                <s.icon className="h-6 w-6" style={{ color: `hsl(var(--${s.color}))` }} />
+        <div className="grid grid-cols-2 gap-5">
+          {stats.map((s) => (
+            <div key={s.label} className="bg-card rounded-2xl p-6 shadow-card border border-border/50 text-center">
+              <div className="h-12 w-12 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                <s.icon className="h-5 w-5 text-primary" />
               </div>
-              <h3 className="font-bold text-lg leading-snug mb-2">{s.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+              <div className="text-3xl font-extrabold text-foreground mb-1">{s.value}</div>
+              <div className="text-sm font-semibold text-foreground mb-1">{s.label}</div>
+              <div className="text-xs text-muted-foreground leading-relaxed">{s.sub}</div>
             </div>
           ))}
         </div>
@@ -70,49 +77,79 @@ const About = () => (
     </section>
 
     <section className="py-20 lg:py-24 bg-background">
-      <div className="container grid lg:grid-cols-2 gap-12 items-start">
-        <div>
-          <div className="text-xs font-bold tracking-[0.2em] text-primary mb-4">AND THERE'S MORE</div>
-          <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-6">IT Consulting Services</h2>
-          <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              We also provide integrated IT consulting services from concept to completion stage for various organizations catering to the commercial or public sector of different business sizes.
-            </p>
-            <p>
-              From enterprise-level implementation to requirements gathering and systems integration through to infrastructure strategy, and assistance in finding outsourcing partners, we provide the full range of consultancy services.
-            </p>
+      <div className="container">
+        <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
+          <div>
+            <div className="text-xs font-bold tracking-[0.2em] text-primary mb-4">WHAT WE DO</div>
+            <h2 className="text-3xl md:text-4xl font-bold leading-tight">Our Core Solutions</h2>
           </div>
+          <Link to="/features" className="text-sm font-semibold text-primary hover:text-primary-glow inline-flex items-center gap-2">
+            Explore All Solutions <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
-        <div className="bg-navy-deep rounded-2xl p-10 text-white shadow-float">
-          <Wrench className="h-12 w-12 text-primary-glow mb-6" />
-          <h3 className="text-2xl font-bold mb-4">End-to-end consulting</h3>
-          <ul className="space-y-3 text-white/80">
-            {["Enterprise implementation", "Requirements gathering", "Systems integration", "Infrastructure strategy", "Outsourcing partner sourcing"].map((i) => (
-              <li key={i} className="flex items-center gap-3">
-                <div className="h-1.5 w-1.5 rounded-full bg-primary-glow" /> {i}
-              </li>
-            ))}
-          </ul>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {services.map((s) => (
+            <Link
+              key={s.title}
+              to={s.to}
+              className="group bg-card rounded-2xl p-6 shadow-card hover:shadow-float transition-all hover:-translate-y-1 border border-border/50 flex flex-col"
+            >
+              <div className="h-11 w-11 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: `hsl(var(--${s.color}) / 0.12)` }}>
+                <s.icon className="h-5 w-5" style={{ color: `hsl(var(--${s.color}))` }} />
+              </div>
+              <h3 className="font-bold text-base leading-snug mb-2">{s.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">{s.desc}</p>
+              <ArrowRight className="h-4 w-4 text-primary group-hover:translate-x-1 transition-transform" />
+            </Link>
+          ))}
         </div>
       </div>
     </section>
 
-    <section className="py-20 lg:py-24 bg-surface-soft">
-      <div className="container">
-        <div className="max-w-3xl mb-14 text-center mx-auto">
-          <div className="text-xs font-bold tracking-[0.2em] text-primary mb-4">WHY CHOOSE US?</div>
-          <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-4">A company built on values & innovation</h2>
-          <p className="text-muted-foreground">
-            Corporate principles of values, innovation, and dedicated customer attention ensuring utmost quality and customer satisfaction.
+    <section className="py-20 lg:py-24 bg-navy-deep text-white relative overflow-hidden">
+      <div className="absolute inset-0 opacity-20" style={{
+        backgroundImage: "radial-gradient(circle at 80% 30%, hsl(var(--primary-glow)) 0%, transparent 40%)"
+      }} />
+      <div className="container relative grid lg:grid-cols-2 gap-12">
+        <div>
+          <div className="text-xs font-bold tracking-[0.2em] text-primary-glow mb-4">AND THERE'S MORE</div>
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-6">End-to-End IT Consulting</h2>
+          <p className="text-white/75 leading-relaxed mb-8 max-w-md">
+            We provide integrated IT consulting services from concept to completion, helping organizations across industries implement, integrate and scale with confidence.
           </p>
+          <Button variant="hero" size="lg" asChild>
+            <Link to="/contact">Learn More <ArrowRight className="ml-2 h-4 w-4" /></Link>
+          </Button>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {reasons.map((r) => (
-            <div key={r.title} className="bg-card rounded-2xl p-6 shadow-card border border-border/50">
-              <div className="h-12 w-12 rounded-xl bg-gradient-primary flex items-center justify-center mb-5">
-                <r.icon className="h-6 w-6 text-primary-foreground" />
+        <div className="lg:border-l lg:border-white/15 lg:pl-12 space-y-7">
+          {consulting.map((c) => (
+            <div key={c.title} className="flex gap-4">
+              <div className="h-11 w-11 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center shrink-0">
+                <c.icon className="h-5 w-5 text-primary-glow" />
               </div>
-              <h3 className="font-bold text-base leading-snug mb-2">{r.title}</h3>
+              <div>
+                <div className="font-bold text-white mb-1">{c.title}</div>
+                <div className="text-sm text-white/70 leading-relaxed">{c.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="py-20 lg:py-24 bg-background">
+      <div className="container">
+        <div className="max-w-3xl mx-auto text-center mb-14">
+          <div className="text-xs font-bold tracking-[0.2em] text-primary mb-4">WHY CHOOSE US</div>
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight">A Partner You Can Rely On</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {reasons.map((r) => (
+            <div key={r.title} className="text-center px-2">
+              <div className="h-14 w-14 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                <r.icon className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="font-bold text-base mb-2">{r.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{r.desc}</p>
             </div>
           ))}
