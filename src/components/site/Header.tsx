@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Ship, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useState } from "react";
 import {
@@ -8,6 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import logo from "@/assets/shipsoft-logo.webp";
 
 const modules = [
   { label: "Customer Relationship Management", to: "/modules/crm" },
@@ -20,7 +21,7 @@ const modules = [
 
 const navItems = [
   { label: "Home", to: "/" },
-  { label: "About us", to: "/about" },
+  { label: "About Us", to: "/about" },
   { label: "Features", to: "/features" },
 ];
 
@@ -30,21 +31,13 @@ const Header = () => {
   const isModuleActive = location.pathname.startsWith("/modules");
 
   return (
-    <header className="sticky top-0 z-50 bg-background/90 backdrop-blur border-b border-border">
+    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
       <div className="container flex h-20 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="h-10 w-10 rounded-lg bg-gradient-primary flex items-center justify-center shadow-soft">
-            <Ship className="h-5 w-5 text-primary-foreground" />
-          </div>
-          <div className="leading-tight">
-            <div className="font-extrabold text-xl tracking-tight">
-              Ship<span className="text-primary">soft</span>
-            </div>
-            <div className="text-[10px] text-muted-foreground tracking-wider">EMPOWERED BY SOFTWARE INNOVATION</div>
-          </div>
+        <Link to="/" className="flex items-center">
+          <img src={logo} alt="Shipsoft — Empowered by Software Innovation" className="h-11 w-auto" />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-9">
           {navItems.map((item) => (
             <NavLink
               key={item.to}
@@ -63,12 +56,12 @@ const Header = () => {
           <DropdownMenu>
             <DropdownMenuTrigger
               className={`text-sm font-medium flex items-center gap-1 transition-colors hover:text-primary outline-none ${
-                isModuleActive ? "text-primary" : "text-foreground/80"
+                isModuleActive ? "text-primary border-b-2 border-primary pb-1" : "text-foreground/80"
               }`}
             >
-              Modules <ChevronDown className="h-3 w-3" />
+              Modules <ChevronDown className="h-3.5 w-3.5" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-72">
+            <DropdownMenuContent align="center" className="w-72">
               {modules.map((m) => (
                 <DropdownMenuItem key={m.to} asChild>
                   <Link to={m.to}>{m.label}</Link>
@@ -85,7 +78,7 @@ const Header = () => {
               }`
             }
           >
-            Contact us
+            Contact Us
           </NavLink>
         </nav>
 
@@ -136,7 +129,7 @@ const Header = () => {
               onClick={() => setOpen(false)}
               className="py-2 text-sm font-medium text-foreground/80 hover:text-primary"
             >
-              Contact us
+              Contact Us
             </Link>
           </nav>
         </div>
