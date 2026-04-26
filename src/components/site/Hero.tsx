@@ -74,7 +74,7 @@ const Hero = () => {
             <Button
               size="xl"
               variant="outline"
-              className="border-white/20 text-bg-blue-600 hover:bg-white/10"
+              className="border-white/20 text-blue-600 hover:bg-white/10"
             >
               Free Consultation
             </Button>
