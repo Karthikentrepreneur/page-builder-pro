@@ -6,114 +6,114 @@ import {
   TrendingUp,
   MapPin,
   FileCheck,
-  ShieldCheck,
   BadgeCheck,
+  ShieldCheck,
 } from "lucide-react";
 
-// ✅ FIXED: clean file paths (no hidden characters)
 import heroBg from "@/assets/hero.png";
 import dashboard from "@/assets/laptop.png";
 
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-navy-deep text-white">
+    <section className="relative overflow-hidden bg-[#050816] text-white">
+      {/* BACKGROUND */}
       <div className="absolute inset-0">
         <img
           src={heroBg}
-          alt="Global shipping port at sunset"
-          className="h-full w-full object-cover opacity-60"
-          width={1920}
-          height={1088}
+          className="h-full w-full object-cover opacity-40 scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/80 to-navy-deep/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050816] via-[#050816]/90 to-[#050816]/40" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(0,123,255,0.15),transparent_40%)]" />
       </div>
 
-      <div className="container relative grid lg:grid-cols-2 gap-10 py-20 lg:py-28 items-center">
-        {/* LEFT CONTENT */}
+      {/* CONTENT */}
+      <div className="container relative grid lg:grid-cols-2 gap-12 py-24 lg:py-32 items-center">
+        {/* LEFT */}
         <div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight">
             Automated,
             <br />
-            <span className="text-primary-glow">AI-Integrated</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+              AI-Integrated
+            </span>
             <br />
-            ERP Logistics Software
+            ERP Logistics
           </h1>
 
-          <p className="mt-6 text-lg text-white/80 max-w-lg">
-            Smarter automation. Faster operations. Built for the future.
+          <p className="mt-6 text-lg text-white/70 max-w-xl">
+            Transform your logistics with intelligent automation, real-time
+            tracking, and scalable ERP solutions built for modern supply chains.
           </p>
 
           {/* FEATURES */}
-          <div className="mt-8 flex flex-wrap gap-x-8 gap-y-4">
+          <div className="mt-8 flex flex-wrap gap-6">
             {[
-              { icon: Cpu, label: "AI-Powered", sub: "Automation" },
-              { icon: Eye, label: "Real-time", sub: "Visibility" },
-              { icon: TrendingUp, label: "Scalable &", sub: "Cost-effective" },
+              { icon: Cpu, label: "AI Automation" },
+              { icon: Eye, label: "Live Visibility" },
+              { icon: TrendingUp, label: "Scalable Growth" },
             ].map((f) => (
-              <div key={f.label} className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-lg bg-white/10 flex items-center justify-center">
-                  <f.icon className="h-5 w-5 text-primary-glow" />
-                </div>
-                <div className="text-sm leading-tight">
-                  <div className="font-semibold">{f.label}</div>
-                  <div className="text-white/70">{f.sub}</div>
-                </div>
+              <div
+                key={f.label}
+                className="flex items-center gap-3 bg-white/5 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 hover:border-blue-400/40 transition"
+              >
+                <f.icon className="h-5 w-5 text-blue-400" />
+                <span className="text-sm font-medium">{f.label}</span>
               </div>
             ))}
           </div>
 
-          {/* BUTTONS */}
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Button variant="hero" size="xl">
+          {/* CTA */}
+          <div className="mt-10 flex gap-4">
+            <Button
+              size="xl"
+              className="bg-blue-500 hover:bg-blue-600 shadow-lg shadow-blue-500/30"
+            >
               Request Demo <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button variant="heroOutline" size="xl">
+
+            <Button
+              size="xl"
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/10"
+            >
               Free Consultation
             </Button>
           </div>
 
-          {/* TRUST TEXT */}
-          <div className="mt-10 flex items-center gap-2 text-sm text-white/80">
-            <ShieldCheck className="h-4 w-4 text-primary-glow" />
-            Trusted by Global Freight Forwarders & Logistical Leaders
+          {/* TRUST */}
+          <div className="mt-8 flex items-center gap-2 text-sm text-white/70">
+            <ShieldCheck className="h-4 w-4 text-blue-400" />
+            Trusted by Global Logistics Leaders
           </div>
         </div>
 
-        {/* RIGHT IMAGE */}
+        {/* RIGHT */}
         <div className="relative hidden lg:block">
           <div className="relative">
             <img
               src={dashboard}
-              alt="Shipsoft logistics dashboard"
-              className="w-full drop-shadow-float"
-              width={1280}
-              height={896}
+              className="w-full drop-shadow-[0_20px_60px_rgba(0,0,0,0.6)] animate-float"
             />
 
             <FloatingCard
-              className="-top-2 right-4"
-              icon={<MapPin className="h-4 w-4 text-primary" />}
+              className="top-0 right-0"
+              icon={<MapPin className="h-4 w-4 text-blue-500" />}
               title="Live Tracking"
               sub="Real-time Updates"
             />
 
             <FloatingCard
-              className="bottom-24 -left-2"
-              icon={<FileCheck className="h-4 w-4 text-primary" />}
-              title="Auto BL Processing"
-              sub="AI-Powered"
+              className="bottom-24 -left-6"
+              icon={<FileCheck className="h-4 w-4 text-blue-500" />}
+              title="Auto BL"
+              sub="AI Processing"
             />
 
             <FloatingCard
-              className="-bottom-2 right-12"
-              icon={
-                <BadgeCheck
-                  className="h-4 w-4"
-                  style={{ color: "hsl(var(--cat-green))" }}
-                />
-              }
+              className="-bottom-4 right-10"
+              icon={<BadgeCheck className="h-4 w-4 text-green-400" />}
               title="Shipment Status"
-              sub="Stay Informed"
+              sub="Instant Alerts"
             />
           </div>
         </div>
@@ -122,26 +122,16 @@ const Hero = () => {
   );
 };
 
-const FloatingCard = ({
-  className = "",
-  icon,
-  title,
-  sub,
-}: {
-  className?: string;
-  icon: React.ReactNode;
-  title: string;
-  sub: string;
-}) => (
+const FloatingCard = ({ className, icon, title, sub }) => (
   <div
-    className={`absolute ${className} bg-card text-card-foreground rounded-xl shadow-float px-4 py-3 flex items-center gap-3 animate-in fade-in zoom-in duration-700`}
+    className={`absolute ${className} bg-white/10 backdrop-blur-lg border border-white/10 rounded-xl px-4 py-3 flex items-center gap-3 shadow-xl animate-fadeUp`}
   >
-    <div className="h-9 w-9 rounded-lg bg-accent flex items-center justify-center">
+    <div className="h-9 w-9 rounded-lg bg-white/20 flex items-center justify-center">
       {icon}
     </div>
-    <div className="leading-tight">
+    <div>
       <div className="text-sm font-semibold">{title}</div>
-      <div className="text-xs text-muted-foreground">{sub}</div>
+      <div className="text-xs text-white/60">{sub}</div>
     </div>
   </div>
 );
