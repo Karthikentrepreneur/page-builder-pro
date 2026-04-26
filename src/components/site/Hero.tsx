@@ -11,8 +11,8 @@ import {
 } from "lucide-react";
 
 // ✅ FIXED: clean file paths (no hidden characters)
-import heroBg from "@/assets/laptop.png";
-import dashboard from "@/assets/hero.png";
+import heroBg from "@/assets/hero.png";
+import dashboard from "@/assets/laptop.png";
 
 const Hero = () => {
   return (
