@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Cpu, Eye, TrendingUp, MapPin, FileCheck, ShieldCheck, BadgeCheck } from "lucide-react";
-import heroBg from "@/assets/hero-port.jpg";
-import dashboard from "@/assets/dashboard-mockup.png";
+import heroBg from "@/assets/laptop.png‎";
+import dashboard from "@/assets/hero.png‎";
 
 const Hero = () => {
   return (
