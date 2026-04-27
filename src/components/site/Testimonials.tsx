@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 const items = [
   { quote: "Shipsoft transformed the way we operate. The automation and visibility have improved our efficiency by 70%.", company: "Nautical Cargo", role: "Operations Director" },
   { quote: "The best logistics ERP we've used. Real-time tracking and AI features are game changers.", company: "Prime Shipping", role: "Managing Director" },
-  { quote: "Reduced manual work by 60% and improved customer satisfaction significantly.", company: "EMSTAR", role: "CEO" },
+  { quote: "Reduced manual work by 60% and improved customer satisfaction significantly.", company: "OECL", role: "CEO" },
 ];
 
 const Testimonials = () => (
