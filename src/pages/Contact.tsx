@@ -38,6 +38,19 @@ const offices = [
     phone: "+966 566 492 783",
     mapQuery: "Prince+Mohammed+Bin+Fahd+Road+Al+Mazruiyah+Saudi+Arabia",
   },
+  {
+    country: "India",
+    company: "SHIPSOFT INDIA",
+    address: [
+      "2nd Floor, Tech Park",
+      "MG Road, Bengaluru",
+      "Karnataka 560001",
+      "India",
+    ],
+    email: "sales@shipsoft.co",
+    phone: "+91 80 4710 0000",
+    mapQuery: "MG+Road+Bengaluru+Karnataka+India",
+  },
 ];
 
 const heroFeatures = [

@@ -14,6 +14,7 @@ import Transport from "./pages/modules/Transport.tsx";
 import Accounts from "./pages/modules/Accounts.tsx";
 import Distribution from "./pages/modules/Distribution.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import ScrollToTop from "./components/site/ScrollToTop.tsx";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />

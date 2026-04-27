@@ -45,10 +45,11 @@ const Footer = () => (
     </div>
 
     <div className="border-t border-white/10">
-      <div className="container py-10 grid md:grid-cols-3 gap-8 text-sm">
+      <div className="container py-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-sm">
         <ContactBlock country="Singapore" lines={["100 TRAS ST, #16-01", "SINGAPORE 079027"]} email="sales@shipsoft.co" phone="+65 3158 0494" />
         <ContactBlock country="UAE" lines={["SM-OFFICE-E1-1613B", "AJMAN FREE ZONE", "UNITED ARAB EMIRATES"]} email="sales@shipsoft.co" phone="+971 43 704077" />
         <ContactBlock country="Saudi Arabia" lines={["Room-302, 3rd Floor", "4073, Prince Mohammed Bin Fahd Rd", "Al Mazruiyah Dist., 32415-7135", "Kingdom of Saudi Arabia"]} email="sales@shipsoft.co" phone="+966 566 492 783" />
+        <ContactBlock country="India" lines={["2nd Floor, Tech Park", "MG Road, Bengaluru", "Karnataka 560001", "India"]} email="sales@shipsoft.co" phone="+91 80 4710 0000" />
       </div>
     </div>
 
