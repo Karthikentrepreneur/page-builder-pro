@@ -1,4 +1,4 @@
-import { Facebook, Linkedin, Youtube, Twitter, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Linkedin, Youtube, Twitter, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/shipsoft-logo.webp";
 
@@ -13,8 +13,14 @@ const Footer = () => (
           Shipsoft is a powerful ERP logistics software designed to optimize operations, improve supply chain visibility, and boost efficiency for modern logistics businesses.
         </p>
         <div className="flex gap-3">
-          {[Linkedin, Facebook, Twitter, Youtube].map((Icon, i) => (
-            <a key={i} href="#" aria-label="Social link" className="h-9 w-9 rounded-full bg-primary flex items-center justify-center hover:bg-primary-glow transition-colors">
+          {[
+            { Icon: Linkedin, href: "https://www.linkedin.com/company/shipsoft-solutions/", label: "LinkedIn" },
+            { Icon: Facebook, href: "https://www.facebook.com/shipsoft.co", label: "Facebook" },
+            { Icon: Twitter, href: "https://x.com/Shipsoft_", label: "X (Twitter)" },
+            { Icon: Instagram, href: "https://www.instagram.com/shipsoft_1/", label: "Instagram" },
+            { Icon: Youtube, href: "https://www.youtube.com/@shipsoft7931", label: "YouTube" },
+          ].map(({ Icon, href, label }) => (
+            <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="h-9 w-9 rounded-full bg-primary flex items-center justify-center hover:bg-primary-glow transition-colors">
               <Icon className="h-4 w-4 text-white" />
             </a>
           ))}
