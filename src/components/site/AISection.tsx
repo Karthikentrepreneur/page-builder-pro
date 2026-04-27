@@ -1,5 +1,5 @@
 import { Brain, ShieldCheck, Globe, UserCircle, BarChart3 } from "lucide-react";
-import aiBg from "@/assets/ai-globe.jpg";
+import aiBg from "@/assets/4e.png";
 
 const features = [
   { icon: Brain, color: "cat-blue", title: "AI & Intelligent Automation", desc: "AI-enabled Manifest and BL processing with intelligent field mapping automatically generates shipment records, reducing manual effort and errors." },
