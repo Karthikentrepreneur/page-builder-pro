@@ -1,12 +1,13 @@
 import { ArrowRight, Users, Truck, Warehouse, DollarSign, Package, ShoppingCart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const solutions = [
-  { icon: Users, title: "Customer Relationship Management", desc: "Centralizes customer interactions, lead generation, and shipment histories to build stronger, long-term client relationships.", color: "cat-blue" },
-  { icon: Truck, title: "Freight Management System", desc: "Simplifies freight operations from booking to delivery, ensuring every shipment arrives on time.", color: "cat-violet" },
-  { icon: Warehouse, title: "Warehouse Management System", desc: "Keeps your warehouse running smoothly — from stock intake to dispatch, every item in its right place.", color: "cat-green" },
-  { icon: DollarSign, title: "Accounts Management System", desc: "Powers your financial operations globally tracking invoices, payments, and expenses with complete accuracy and confidence.", color: "cat-orange" },
-  { icon: Package, title: "Distribution Management System", desc: "Drives your distribution network globally — managing orders, deliveries, and supply flow with speed and total precision.", color: "cat-purple" },
-  { icon: ShoppingCart, title: "e-Commerce", desc: "Connects your online business to the world — handling orders, shipments, and returns with effortless speed and reliability.", color: "cat-pink" },
+  { icon: Users, title: "Customer Relationship Management", desc: "Centralizes customer interactions, lead generation, and shipment histories to build stronger, long-term client relationships.", color: "cat-blue", to: "/modules/crm" },
+  { icon: Truck, title: "Freight Management System", desc: "Simplifies freight operations from booking to delivery, ensuring every shipment arrives on time.", color: "cat-violet", to: "/modules/freight" },
+  { icon: Warehouse, title: "Warehouse Management System", desc: "Keeps your warehouse running smoothly — from stock intake to dispatch, every item in its right place.", color: "cat-green", to: "/modules/warehouse" },
+  { icon: DollarSign, title: "Accounts Management System", desc: "Powers your financial operations globally tracking invoices, payments, and expenses with complete accuracy and confidence.", color: "cat-orange", to: "/modules/accounts" },
+  { icon: Package, title: "Distribution Management System", desc: "Drives your distribution network globally — managing orders, deliveries, and supply flow with speed and total precision.", color: "cat-purple", to: "/modules/distribution" },
+  { icon: ShoppingCart, title: "e-Commerce", desc: "Connects your online business to the world — handling orders, shipments, and returns with effortless speed and reliability.", color: "cat-pink", to: "/modules/distribution" },
 ];
 
 const Solutions = () => {
@@ -28,7 +29,7 @@ const Solutions = () => {
 
         <div className="lg:col-span-2 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {solutions.map((s) => (
-            <div key={s.title} className="group bg-card rounded-2xl p-6 shadow-card hover:shadow-float transition-all hover:-translate-y-1 border border-border/50">
+            <Link key={s.title} to={s.to} className="group bg-card rounded-2xl p-6 shadow-card hover:shadow-float transition-all hover:-translate-y-1 border border-border/50 block">
               <div
                 className="h-12 w-12 rounded-xl flex items-center justify-center mb-5"
                 style={{ backgroundColor: `hsl(var(--${s.color}) / 0.12)` }}
@@ -38,7 +39,7 @@ const Solutions = () => {
               <h3 className="font-bold text-lg leading-snug mb-2">{s.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">{s.desc}</p>
               <ArrowRight className="h-4 w-4 text-primary group-hover:translate-x-1 transition-transform" />
-            </div>
+            </Link>
           ))}
         </div>
       </div>
