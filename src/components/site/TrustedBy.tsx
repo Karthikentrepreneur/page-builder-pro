@@ -17,22 +17,19 @@ const logos = [
 ];
 
 const TrustedBy = () => (
-  <section className="py-14 bg-background border-y border-border">
+  <section className="py-16 bg-background border-y border-border">
     <div className="container">
-      <div className="text-center text-xs font-bold tracking-[0.2em] text-primary mb-8">
+      <div className="text-center text-sm font-bold tracking-[0.25em] text-primary mb-10">
         TRUSTED BY LEADING COMPANIES WORLDWIDE
       </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+      <div className="flex flex-wrap items-center justify-center gap-x-14 gap-y-10">
         {logos.map((logo, i) => (
-          <div
-            key={i}
-            className="flex items-center justify-center opacity-70 hover:opacity-100 transition"
-          >
+          <div key={i} className="flex items-center justify-center">
             <img
               src={logo}
               alt={`logo-${i}`}
-              className="h-10 object-contain grayscale hover:grayscale-0 transition"
+              className="h-14 md:h-16 lg:h-20 object-contain transition-transform duration-300 hover:scale-110"
             />
           </div>
         ))}
