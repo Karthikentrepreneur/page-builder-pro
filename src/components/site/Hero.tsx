@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import {
   ArrowRight,
   Cpu,
@@ -67,16 +68,11 @@ const Hero = () => {
             <Button
               size="xl"
               className="bg-blue-500 hover:bg-blue-600 shadow-lg shadow-blue-500/30"
+              asChild
             >
-              Request Demo <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-
-            <Button
-              size="xl"
-              variant="outline"
-              className="border-white/20 text-blue-600 hover:bg-white/10"
-            >
-              Free Consultation
+              <Link to="/contact">
+                Request Demo <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
           </div>
 
