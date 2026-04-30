@@ -42,13 +42,13 @@ const offices = [
     country: "India",
     company: "SHIPSOFT INDIA",
     address: [
-      "2nd Floor, Tech Park",
-      "MG Road, Bengaluru",
-      "Karnataka 560001",
+      "KAIZEN, 2nd & 3rd Floor,", 
+      "New No. G3 (Old No. G1), G Block, Plot No. 565Q, 18th Street, Chinthamani,",
+      "Anna Nagar East, Chennai 600102.",
       "India",
     ],
     email: "sales@shipsoft.co",
-    phone: "+91 80 4710 0000",
+    phone: "+91 44 4796 5437",
     mapQuery: "MG+Road+Bengaluru+Karnataka+India",
   },
 ];
