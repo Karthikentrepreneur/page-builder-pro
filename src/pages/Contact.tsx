@@ -49,7 +49,7 @@ const offices = [
     ],
     email: "sales@shipsoft.co",
     phone: "+91 44 4796 5437",
-    mapQuery: "SHIPSOFT+INDIA+KAIZEN+Anna+Nagar+East+Chennai+600102",
+    mapQuery: "Orange+Office+Technologies+Pvt+Ltd+Anna+Nagar+East+Chennai",
   },
 ];
 
