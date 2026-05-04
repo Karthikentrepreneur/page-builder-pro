@@ -47,7 +47,7 @@ const offices = [
       "India",
     ],
     email: "sales@shipsoft.co",
-    phone: "+91 7530054555",
+    phone: "+91 75300 54555",
     mapQuery: "Anna+Nagar+East+Chennai",
   },
 ];
