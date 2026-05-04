@@ -55,7 +55,7 @@ const Footer = () => (
         <ContactBlock country="Singapore" lines={["100 TRAS ST, #16-01", "SINGAPORE 079027"]} email="sales@shipsoft.co" phone="+65 3158 0494" />
         <ContactBlock country="UAE" lines={["SM-OFFICE-E1-1613B", "AJMAN FREE ZONE", "UNITED ARAB EMIRATES"]} email="sales@shipsoft.co" phone="+971 43 704077" />
         <ContactBlock country="Saudi Arabia" lines={["Room-302, 3rd Floor", "4073, Prince Mohammed Bin Fahd Rd", "Al Mazruiyah Dist., 32415-7135", "Kingdom of Saudi Arabia"]} email="sales@shipsoft.co" phone="+966 566 492 783" />
-        <ContactBlock country="India" lines={["KAIZEN, 2nd & 3rd Floor, New No. G3 (Old No. G1), G Block, Plot No. 565Q, 18th Street, Chinthamani, Anna Nagar East, Chennai 600102.", "India"]} email="sales@shipsoft.co" phone="+91 44 4796 5437" />
+        <ContactBlock country="India" lines={["KAIZEN, 2nd & 3rd Floor, New No. G3 (Old No. G1), G Block, Plot No. 565Q, 18th Street, Chinthamani, Anna Nagar East, Chennai 600102.", "India"]} email="sales@shipsoft.co" phone="+91 7530054555" />
       </div>
     </div>
 
