@@ -1,6 +1,6 @@
 import { Facebook, Linkedin, Youtube, Twitter, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/shipsoft-logo.webp";
+import logo from "@/assets/Shipsoft.webp";
 
 const Footer = () => (
   <footer className="bg-navy-deep text-white/80">
