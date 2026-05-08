@@ -133,43 +133,6 @@ const About = () => (
       </div>
     </section>
 
-    <section className="py-20 lg:py-24 bg-navy-deep text-white relative overflow-hidden">
-      <div
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: "radial-gradient(circle at 80% 30%, hsl(var(--primary-glow)) 0%, transparent 40%)",
-        }}
-      />
-      <div className="container relative grid lg:grid-cols-2 gap-12">
-        <div>
-          <div className="text-xs font-bold tracking-[0.2em] text-primary-glow mb-4">AND THERE'S MORE</div>
-          <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-6">End-to-End IT Consulting</h2>
-          <p className="text-white/75 leading-relaxed mb-8 max-w-md">
-            We provide integrated IT consulting services from concept to completion, helping organizations across industries implement, integrate and scale with confidence.
-          </p>
-          <Button variant="hero" size="lg" asChild>
-            <Link to="/contact">
-              Learn More <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-        </div>
-
-        <div className="lg:border-l lg:border-white/15 lg:pl-12 space-y-7">
-          {consulting.map((c) => (
-            <div key={c.title} className="flex gap-4">
-              <div className="h-11 w-11 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center shrink-0">
-                <c.icon className="h-5 w-5 text-primary-glow" />
-              </div>
-              <div>
-                <div className="font-bold text-white mb-1">{c.title}</div>
-                <div className="text-sm text-white/70 leading-relaxed">{c.desc}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
     <section className="py-20 lg:py-24 bg-background">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-14">
