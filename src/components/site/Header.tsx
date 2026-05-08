@@ -8,7 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import logo from "@/assets/shipsoft-logo.webp";
+import logo from "@/assets/Shipsoft.webp";
 
 const modules = [
   { label: "Customer Relationship Management", to: "/modules/crm" },
