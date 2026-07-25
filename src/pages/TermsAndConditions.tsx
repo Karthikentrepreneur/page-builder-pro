@@ -1,6 +1,6 @@
 import PageShell from "@/components/site/PageShell";
 import PageHero from "@/components/site/PageHero";
-import { Mail, MapPin, Globe } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 interface Section {
   title: string;
@@ -9,246 +9,147 @@ interface Section {
 
 const sections: Section[] = [
   {
-    title: "1. About Us",
+    title: "2. Company Information",
+    body: (
+      <>
+        <p>
+          Shipsoft Solutions is headquartered in Singapore, with associated regional operations in
+          Chennai, India. These Terms apply to all global operations, branches, and subsidiaries
+          operating under the Shipsoft brand.
+        </p>
+        <p className="mt-4 text-sm italic">
+          (Note: These Terms do not apply to the legacy "ShipSoft" parcel and freight suite offered
+          by Varsity Logistics for IBM i / AS/400 systems).
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "3. Description of Services",
+    body: (
+      <>
+        <p>We provide web-based logistics and supply chain software, including:</p>
+        <ul className="list-disc pl-5 space-y-1">
+          <li>
+            <span className="font-semibold text-foreground">Logistics ERP:</span>{" "}
+            Real-time cargo tracking, workflow automation, and analytics.
+          </li>
+          <li>
+            <span className="font-semibold text-foreground">Warehouse & Distribution:</span>{" "}
+            Online inventory tracking, automated transport alerts, and order management.
+          </li>
+          <li>
+            <span className="font-semibold text-foreground">CRM Modules:</span>{" "}
+            Centralized client data and automated communication tools.
+          </li>
+        </ul>
+        <p className="mt-4">
+          Our platforms are built using the PHP Laravel web framework and Oracle relational
+          databases, deployed on a three-tier architecture to ensure high availability and security.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "4. User Accounts and Security",
+    body: (
+      <>
+        <p>
+          To access specific modules (such as your warehouse dashboards or freight portals), you must
+          register for an account.
+        </p>
+        <ul className="list-disc pl-5 space-y-1 mt-4">
+          <li>
+            <span className="font-semibold text-foreground">Responsibility:</span>{" "}
+            You are responsible for safeguarding your login credentials and for all activities that occur under your account.
+          </li>
+          <li>
+            <span className="font-semibold text-foreground">Notification:</span>{" "}
+            You must notify us immediately of any unauthorized use of your account or any other breach of security.
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    title: "5. Acceptable Use Policy",
+    body: (
+      <>
+        <p>When using Shipsoft Solutions, you agree not to:</p>
+        <ul className="list-disc pl-5 space-y-1">
+          <li>Attempt to reverse engineer, decompile, or hack our PHP Laravel application layer or Oracle databases.</li>
+          <li>Use the Services to transmit malicious code, viruses, or illegal data.</li>
+          <li>Disrupt the integrity or performance of the three-tier architecture that hosts the Services.</li>
+          <li>Input fraudulent cargo, freight, or billing information into the ERP or freight portals.</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    title: "6. Data and Privacy",
     body: (
       <p>
-        Orange Office Technologies Pvt Ltd (OOT) is a leading Knowledge Process Outsourcing (KPO)
-        and IT solutions provider specializing in back-office infrastructure for the global freight
-        forwarding, shipping, and third-party logistics (3PL) industries. Headquartered in Chennai,
-        India, OOT operates across 12 countries, helping logistics organizations automate workflows,
-        streamline operations, and improve efficiency through technology-driven solutions.
+        Your use of the Services is also governed by our Privacy Policy, which details how we
+        collect, process, and protect your logistics and client data. By using our Services, you
+        grant us the right to process your operational data strictly for the purpose of providing and
+        improving the ERP and freight management platforms.
       </p>
     ),
   },
   {
-    title: "2. Acceptance of Terms",
-    body: (
-      <>
-        <p>By using our website, applications, or services, you confirm that you:</p>
-        <ul className="list-disc pl-5 space-y-1">
-          <li>Are at least 18 years of age or are using the services under the supervision of a parent or legal guardian.</li>
-          <li>Have the legal authority to enter into these Terms.</li>
-          <li>Will comply with all applicable laws and regulations.</li>
-        </ul>
-      </>
-    ),
-  },
-  {
-    title: "3. Use of Our Services",
-    body: (
-      <>
-        <p>You agree to use our services only for lawful business purposes.</p>
-        <p className="mt-4">You agree not to:</p>
-        <ul className="list-disc pl-5 space-y-1">
-          <li>Violate any applicable laws or regulations.</li>
-          <li>Attempt to gain unauthorized access to our systems.</li>
-          <li>Distribute malware, viruses, or harmful software.</li>
-          <li>Interfere with the security or performance of our services.</li>
-          <li>Reverse engineer, copy, modify, or exploit our software except where permitted by law.</li>
-          <li>Use our services to transmit illegal, fraudulent, or abusive content.</li>
-        </ul>
-        <p className="mt-4">
-          We reserve the right to suspend or terminate access for any user who violates these Terms.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: "4. User Accounts",
-    body: (
-      <>
-        <p>Some services require registration.</p>
-        <p className="mt-4">You are responsible for:</p>
-        <ul className="list-disc pl-5 space-y-1">
-          <li>Providing accurate information.</li>
-          <li>Maintaining the confidentiality of your login credentials.</li>
-          <li>All activities performed under your account.</li>
-          <li>Promptly notifying us of any unauthorized access or security breach.</li>
-        </ul>
-      </>
-    ),
-  },
-  {
-    title: "5. Intellectual Property",
-    body: (
-      <>
-        <p>All content available on our website and services, including but not limited to:</p>
-        <ul className="list-disc pl-5 space-y-1">
-          <li>Software</li>
-          <li>Source code</li>
-          <li>Designs</li>
-          <li>Logos</li>
-          <li>Graphics</li>
-          <li>Documentation</li>
-          <li>Text</li>
-          <li>Images</li>
-          <li>Videos</li>
-          <li>Trademarks</li>
-        </ul>
-        <p className="mt-4">
-          is owned by or licensed to Orange Office Technologies Pvt Ltd and is protected under
-          applicable intellectual property laws.
-        </p>
-        <p className="mt-4">
-          You may not reproduce, distribute, modify, or commercially exploit any content without our
-          prior written permission.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: "6. Client Data",
-    body: (
-      <>
-        <p>Clients retain ownership of the data they provide to us.</p>
-        <p className="mt-4">
-          OOT processes client data solely for the purpose of delivering agreed services and in
-          accordance with applicable privacy and data protection laws.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: "7. Third-Party Services",
-    body: (
-      <>
-        <p>Our website or applications may integrate with third-party platforms or services.</p>
-        <p className="mt-4">We are not responsible for:</p>
-        <ul className="list-disc pl-5 space-y-1">
-          <li>Third-party content.</li>
-          <li>Third-party privacy practices.</li>
-          <li>Service interruptions caused by third parties.</li>
-        </ul>
-        <p className="mt-4">
-          Your use of third-party services is governed by their respective terms and policies.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: "8. Service Availability",
-    body: (
-      <>
-        <p>We strive to provide reliable and uninterrupted services.</p>
-        <p className="mt-4">However, we do not guarantee that:</p>
-        <ul className="list-disc pl-5 space-y-1">
-          <li>Services will always be available.</li>
-          <li>Services will be error-free.</li>
-          <li>All defects will be corrected immediately.</li>
-        </ul>
-        <p className="mt-4">
-          Scheduled maintenance, upgrades, or unforeseen technical issues may temporarily affect
-          availability.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: "9. Limitation of Liability",
-    body: (
-      <>
-        <p>
-          To the fullest extent permitted by law, Orange Office Technologies Pvt Ltd shall not be
-          liable for any indirect, incidental, special, consequential, or punitive damages arising
-          from:
-        </p>
-        <ul className="list-disc pl-5 space-y-1">
-          <li>Use or inability to use our services.</li>
-          <li>Data loss.</li>
-          <li>Business interruption.</li>
-          <li>Unauthorized access.</li>
-          <li>Software defects.</li>
-          <li>Third-party services.</li>
-        </ul>
-        <p className="mt-4">
-          Our total liability shall not exceed the amount paid by the customer for the applicable
-          services during the preceding twelve (12) months, unless otherwise required by law.
-        </p>
-      </>
-    ),
-  },
-  {
-    title: "10. Indemnification",
-    body: (
-      <>
-        <p>
-          You agree to indemnify and hold harmless Orange Office Technologies Pvt Ltd, its directors,
-          employees, affiliates, and partners from any claims, liabilities, damages, losses, or
-          expenses arising from:
-        </p>
-        <ul className="list-disc pl-5 space-y-1">
-          <li>Your misuse of our services.</li>
-          <li>Violation of these Terms.</li>
-          <li>Violation of applicable laws.</li>
-          <li>Infringement of any third-party rights.</li>
-        </ul>
-      </>
-    ),
-  },
-  {
-    title: "11. Confidentiality",
+    title: "7. Intellectual Property Rights",
     body: (
       <p>
-        Where applicable, both parties agree to protect confidential information exchanged during the
-        course of business and not disclose such information without prior written consent, except as
-        required by law.
+        Shipsoft Solutions retains all right, title, and interest in and to the Services, including
+        all proprietary software, databases, user interface designs, and underlying code. You are
+        granted a limited, non-exclusive, non-transferable license to use the Services for your
+        internal business logistics and supply chain operations.
       </p>
     ),
   },
   {
-    title: "12. Termination",
+    title: "8. Limitation of Liability",
     body: (
       <>
-        <p>We reserve the right to suspend or terminate your access to our services immediately if:</p>
+        <p>To the maximum extent permitted by law:</p>
         <ul className="list-disc pl-5 space-y-1">
-          <li>You violate these Terms.</li>
-          <li>Fraudulent or illegal activity is detected.</li>
-          <li>Continued access poses a security risk.</li>
-          <li>Required by applicable law.</li>
+          <li>Shipsoft Solutions shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, or business opportunities.</li>
+          <li>We do not guarantee that our real-time cargo tracking or automated transport alerts will be 100% error-free or uninterrupted, as these often rely on third-party carrier data.</li>
+          <li>We are not responsible for physical freight delays, loss of goods, or warehousing errors made by you or your third-party logistics providers.</li>
         </ul>
-        <p className="mt-4">
-          Termination does not affect any rights or obligations accrued before termination.
-        </p>
       </>
     ),
   },
   {
-    title: "13. Disclaimer",
+    title: "9. Service Availability and Updates",
     body: (
-      <>
-        <p>Our services are provided on an "as is" and "as available" basis.</p>
-        <p className="mt-4">
-          To the fullest extent permitted by law, OOT disclaims all warranties, express or implied,
-          including warranties of merchantability, fitness for a particular purpose, and
-          non-infringement.
-        </p>
-      </>
+      <p>
+        We strive to ensure maximum uptime for our ERP and freight portals. However, we may
+        occasionally suspend access to perform maintenance, apply security patches, or upgrade our
+        database architecture. We will make reasonable efforts to notify you in advance of planned
+        downtime.
+      </p>
     ),
   },
   {
-    title: "14. Governing Law",
+    title: "10. Termination",
     body: (
-      <>
-        <p>
-          These Terms shall be governed by and interpreted in accordance with the laws of India.
-        </p>
-        <p className="mt-4">
-          Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the
-          competent courts located in Chennai, Tamil Nadu, India.
-        </p>
-      </>
+      <p>
+        We reserve the right to suspend or terminate your access to the Services at our discretion,
+        without notice, if you breach these Terms. Upon termination, your right to use the Services
+        will immediately cease, and you must settle any outstanding subscription or licensing fees.
+      </p>
     ),
   },
   {
-    title: "15. Changes to These Terms",
+    title: "11. Governing Law and Dispute Resolution",
     body: (
-      <>
-        <p>We may revise these Terms from time to time.</p>
-        <p className="mt-4">
-          Any updates will be published on this page with a revised Effective Date. Continued use of
-          our services after such changes constitutes acceptance of the updated Terms.
-        </p>
-      </>
+      <p>
+        These Terms shall be governed by and construed in accordance with the laws of the Republic of
+        Singapore, without regard to its conflict of law principles. Any disputes arising out of or
+        relating to these Terms or the Services shall be resolved exclusively in the courts of
+        Singapore.
+      </p>
     ),
   },
 ];
@@ -258,7 +159,7 @@ const TermsAndConditions = () => (
     <PageHero
       eyebrow="LEGAL"
       title="Terms and Conditions"
-      subtitle="These Terms govern your access to and use of Orange Office Technologies Pvt Ltd's website, software applications, products, and services."
+      subtitle="Terms and Conditions for Shipsoft Solutions — governing your access to and use of our web-based ERP systems, freight portals, and custom digital logistics tools."
     />
 
     <section className="py-20 lg:py-24 bg-background">
@@ -268,14 +169,16 @@ const TermsAndConditions = () => (
               <span className="font-semibold text-foreground">Effective Date:</span> 25 July 2026
             </p>
             <p>
-              Welcome to Orange Office Technologies Pvt Ltd ("OOT", "we", "our", or "us"). These
-              Terms and Conditions ("Terms") govern your access to and use of our website, software
-              applications, products, and services.
+              <span className="font-semibold text-foreground">1. Introduction and Agreement.</span>{" "}
+              Welcome to Shipsoft (also known as Shipsoft Solutions). These Terms and Conditions
+              ("Terms") govern your access to and use of our web-based enterprise resource planning
+              (ERP) systems, freight portals, and custom digital logistics tools (collectively, the
+              "Services").
             </p>
             <p>
-              By accessing or using our website or services, you agree to be bound by these Terms. If
-              you do not agree with any part of these Terms, please discontinue use of our website and
-              services.
+              By accessing or using our Services, you agree to be bound by these Terms. If you are
+              using the Services on behalf of an organization, you agree to these Terms on behalf of
+              that organization and represent that you have the authority to do so.
             </p>
           </div>
 
@@ -288,29 +191,32 @@ const TermsAndConditions = () => (
             ))}
 
             <div>
-              <h2 className="text-2xl font-bold leading-tight mb-4 text-foreground">16. Contact Information</h2>
+              <h2 className="text-2xl font-bold leading-tight mb-4 text-foreground">12. Contact Information</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                If you have any questions regarding these Terms and Conditions, please contact us:
+                If you have any questions or concerns regarding these Terms, please contact us at:
               </p>
-              <div className="bg-card rounded-2xl p-6 md:p-8 shadow-card border border-border/50">
-                <div className="font-bold text-foreground mb-4">Orange Office Technologies Pvt Ltd</div>
-                <div className="space-y-3 text-sm text-muted-foreground">
-                  <div className="flex items-start gap-3">
+              <div className="bg-card rounded-2xl p-6 md:p-8 shadow-card border border-border/50 grid sm:grid-cols-2 gap-8">
+                <div>
+                  <div className="font-bold text-foreground mb-3">Singapore Headquarters</div>
+                  <div className="flex items-start gap-3 text-sm text-muted-foreground">
                     <MapPin className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                    <span>Chennai, Tamil Nadu, India</span>
+                    <span>100 TRAS ST, #16-01, SINGAPORE 079027</span>
                   </div>
-                  <a
-                    href="https://www.orangeot.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 hover:text-primary transition-colors"
-                  >
-                    <Globe className="h-4 w-4 text-primary shrink-0" />
-                    www.orangeot.com
-                  </a>
+                </div>
+                <div>
+                  <div className="font-bold text-foreground mb-3">Chennai Operations</div>
+                  <div className="flex items-start gap-3 text-sm text-muted-foreground">
+                    <MapPin className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                    <span>
+                      KAIZEN, 2nd & 3rd Floor, New No. G3 (Old No. G1), G Block, Plot No. 565Q, 18th
+                      Street, Chinthamani, Anna Nagar East, Chennai 600102, India
+                    </span>
+                  </div>
+                </div>
+                <div className="sm:col-span-2 pt-2 border-t border-border/50">
                   <a
                     href="mailto:sales@shipsoft.co"
-                    className="flex items-center gap-3 hover:text-primary transition-colors"
+                    className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     <Mail className="h-4 w-4 text-primary shrink-0" />
                     sales@shipsoft.co
