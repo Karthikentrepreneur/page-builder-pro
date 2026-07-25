@@ -4,7 +4,7 @@ import logo from "@/assets/Shipsoft.webp";
 
 const Footer = () => (
   <footer className="bg-navy-deep text-white/80">
-    <div className="container py-16 grid md:grid-cols-2 lg:grid-cols-5 gap-10">
+    <div className="container py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
       <div className="lg:col-span-2">
         <div className="bg-white/95 inline-flex rounded-lg p-2 mb-5">
           <img src={logo} alt="Shipsoft" className="h-10 w-auto" />
@@ -36,18 +36,14 @@ const Footer = () => (
         { label: "e-Commerce", to: "/modules/distribution" },
       ]} />
       <FooterCol title="Company" links={[
+        { label: "Home", to: "#" },
         { label: "About Us", to: "/about" },
-        { label: "Resources", to: "#" },
-        { label: "Blog", to: "#" },
-        { label: "Careers", to: "#" },
+        { label: "Features", to: "/features" },
         { label: "Contact Us", to: "/contact" },
-      ]} />
-      <FooterCol title="Support" links={[
-        { label: "Help Center", to: "#" },
-        { label: "Documentation", to: "#" },
         { label: "Privacy Policy", to: "/privacy-policy" },
         { label: "Terms & Conditions", to: "/terms-and-conditions" },
       ]} />
+     
     </div>
 
     <div className="border-t border-white/10">
