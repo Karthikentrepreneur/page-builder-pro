@@ -310,11 +310,11 @@ const TermsAndConditions = () => (
                     www.orangeot.com
                   </a>
                   <a
-                    href="mailto:legal@orangeot.com"
+                    href="mailto:sales@shipsoft.co"
                     className="flex items-center gap-3 hover:text-primary transition-colors"
                   >
                     <Mail className="h-4 w-4 text-primary shrink-0" />
-                    legal@orangeot.com
+                    sales@shipsoft.co
                   </a>
                 </div>
               </div>
