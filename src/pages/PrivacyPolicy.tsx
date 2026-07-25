@@ -219,7 +219,6 @@ const PrivacyPolicy = () => (
 
     <section className="py-20 lg:py-24 bg-background">
       <div className="container">
-        <div className="max-w-2xl mx-auto">
           <div className="bg-card rounded-2xl p-6 md:p-8 shadow-card border border-border/50 mb-12 text-sm text-muted-foreground leading-relaxed space-y-3">
             <p>
               <span className="font-semibold text-foreground">Effective Date:</span> 25 July 2026
@@ -284,7 +283,6 @@ const PrivacyPolicy = () => (
             By accessing our website or using our services, you acknowledge that you have read and
             understood this Privacy Policy.
           </p>
-        </div>
       </div>
     </section>
   </PageShell>
