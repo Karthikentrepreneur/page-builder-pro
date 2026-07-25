@@ -263,10 +263,10 @@ const TermsAndConditions = () => (
 
     <section className="py-20 lg:py-24 bg-background">
       <div className="container">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-2xl mx-auto">
           <div className="bg-card rounded-2xl p-6 md:p-8 shadow-card border border-border/50 mb-12 text-sm text-muted-foreground leading-relaxed space-y-3">
             <p>
-              <span className="font-semibold text-foreground">Effective Date:</span> [DD Month YYYY]
+              <span className="font-semibold text-foreground">Effective Date:</span> 25 July 2026
             </p>
             <p>
               Welcome to Orange Office Technologies Pvt Ltd ("OOT", "we", "our", or "us"). These
