@@ -45,7 +45,7 @@ const Footer = () => (
       <FooterCol title="Support" links={[
         { label: "Help Center", to: "#" },
         { label: "Documentation", to: "#" },
-        { label: "Privacy Policy", to: "#" },
+        { label: "Privacy Policy", to: "/privacy-policy" },
         { label: "Terms & Conditions", to: "#" },
       ]} />
     </div>

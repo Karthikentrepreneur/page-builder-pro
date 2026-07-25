@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import About from "./pages/About.tsx";
 import Features from "./pages/Features.tsx";
 import Contact from "./pages/Contact.tsx";
+import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import CRM from "./pages/modules/CRM.tsx";
 import Freight from "./pages/modules/Freight.tsx";
 import Warehouse from "./pages/modules/Warehouse.tsx";
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/features" element={<Features />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/modules/crm" element={<CRM />} />
           <Route path="/modules/freight" element={<Freight />} />
           <Route path="/modules/warehouse" element={<Warehouse />} />
