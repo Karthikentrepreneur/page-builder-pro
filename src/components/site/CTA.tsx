@@ -25,11 +25,9 @@ const CTA = () => (
       </div>
       <div className="flex flex-wrap gap-3 md:justify-end">
         <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90" asChild>
-          <Link to="/contact">Request Demo <ArrowRight className="ml-2 h-4 w-4" /></Link>
-        </Button>
-        <Button variant="heroOutline" size="lg" asChild>
           <Link to="/contact">Contact Us <ArrowRight className="ml-2 h-4 w-4" /></Link>
         </Button>
+
       </div>
     </div>
   </section>
