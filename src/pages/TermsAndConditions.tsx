@@ -9,6 +9,24 @@ interface Section {
 
 const sections: Section[] = [
   {
+    title: "1. Introduction and Agreement",
+    body: (
+      <>
+        <p>
+          Welcome to Shipsoft (also known as Shipsoft Solutions). These Terms and Conditions
+          ("Terms") govern your access to and use of our web-based enterprise resource planning (ERP)
+          systems, freight portals, and custom digital logistics tools (collectively, the
+          "Services").
+        </p>
+        <p className="mt-4">
+          By accessing or using our Services, you agree to be bound by these Terms. If you are using
+          the Services on behalf of an organization, you agree to these Terms on behalf of that
+          organization and represent that you have the authority to do so.
+        </p>
+      </>
+    ),
+  },
+  {
     title: "2. Company Information",
     body: (
       <>
@@ -164,23 +182,9 @@ const TermsAndConditions = () => (
 
     <section className="py-20 lg:py-24 bg-background">
       <div className="container">
-          <div className="bg-card rounded-2xl p-6 md:p-8 shadow-card border border-border/50 mb-12 text-sm text-muted-foreground leading-relaxed space-y-3">
-            <p>
-              <span className="font-semibold text-foreground">Effective Date:</span> 25 July 2026
-            </p>
-            <p>
-              <span className="font-semibold text-foreground">1. Introduction and Agreement.</span>{" "}
-              Welcome to Shipsoft (also known as Shipsoft Solutions). These Terms and Conditions
-              ("Terms") govern your access to and use of our web-based enterprise resource planning
-              (ERP) systems, freight portals, and custom digital logistics tools (collectively, the
-              "Services").
-            </p>
-            <p>
-              By accessing or using our Services, you agree to be bound by these Terms. If you are
-              using the Services on behalf of an organization, you agree to these Terms on behalf of
-              that organization and represent that you have the authority to do so.
-            </p>
-          </div>
+          <p className="text-muted-foreground leading-relaxed mb-10">
+            <span className="font-semibold text-foreground">Effective Date:</span> 25 July 2026
+          </p>
 
           <div className="space-y-14">
             {sections.map((s) => (

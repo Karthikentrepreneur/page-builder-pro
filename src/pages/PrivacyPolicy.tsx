@@ -9,6 +9,24 @@ interface Section {
 
 const sections: Section[] = [
   {
+    title: "1. Introduction",
+    body: (
+      <>
+        <p>
+          Welcome to Shipsoft (also known as Shipsoft Solutions). We are a logistics and supply chain
+          software company headquartered in Singapore, with regional operations in Chennai, India. We
+          specialize in providing web-based enterprise resource planning (ERP), freight portals, and
+          custom digital tools designed for the logistics, warehousing, and e-commerce shipping
+          industries.
+        </p>
+        <p className="mt-4">
+          This Privacy Policy explains how we collect, use, safeguard, and disclose information when
+          you use our web applications, platforms, and services.
+        </p>
+      </>
+    ),
+  },
+  {
     title: "2. Information We Collect",
     body: (
       <>
@@ -132,23 +150,9 @@ const PrivacyPolicy = () => (
 
     <section className="py-20 lg:py-24 bg-background">
       <div className="container">
-          <div className="bg-card rounded-2xl p-6 md:p-8 shadow-card border border-border/50 mb-12 text-sm text-muted-foreground leading-relaxed space-y-3">
-            <p>
-              <span className="font-semibold text-foreground">Effective Date:</span> 25 July 2026
-            </p>
-            <p>
-              <span className="font-semibold text-foreground">1. Introduction.</span>{" "}
-              Welcome to Shipsoft (also known as Shipsoft Solutions). We are a logistics and supply
-              chain software company headquartered in Singapore, with regional operations in Chennai,
-              India. We specialize in providing web-based enterprise resource planning (ERP), freight
-              portals, and custom digital tools designed for the logistics, warehousing, and
-              e-commerce shipping industries.
-            </p>
-            <p>
-              This Privacy Policy explains how we collect, use, safeguard, and disclose information
-              when you use our web applications, platforms, and services.
-            </p>
-          </div>
+          <p className="text-muted-foreground leading-relaxed mb-10">
+            <span className="font-semibold text-foreground">Effective Date:</span> 25 July 2026
+          </p>
 
           <div className="space-y-14">
             {sections.map((s) => (
