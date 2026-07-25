@@ -46,7 +46,7 @@ const Footer = () => (
         { label: "Help Center", to: "#" },
         { label: "Documentation", to: "#" },
         { label: "Privacy Policy", to: "/privacy-policy" },
-        { label: "Terms & Conditions", to: "#" },
+        { label: "Terms & Conditions", to: "/terms-and-conditions" },
       ]} />
     </div>
 
