@@ -13,14 +13,7 @@ const Testimonials = () => (
         <div className="text-xs font-bold tracking-[0.2em] text-primary mb-4">WHAT OUR CLIENTS SAY</div>
         <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-6">Driving Success for Logistics Businesses</h2>
         <div className="h-1 w-16 bg-primary rounded mb-8" />
-        <div className="flex gap-2">
-          <button className="h-10 w-10 rounded-full border border-border flex items-center justify-center hover:bg-accent transition-colors">
-            <ChevronLeft className="h-4 w-4" />
-          </button>
-          <button className="h-10 w-10 rounded-full border border-border flex items-center justify-center hover:bg-accent transition-colors">
-            <ChevronRight className="h-4 w-4" />
-          </button>
-        </div>
+
       </div>
       <div className="lg:col-span-3 grid md:grid-cols-3 gap-5">
         {items.map((t) => (
