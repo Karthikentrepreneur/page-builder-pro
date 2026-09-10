@@ -1,177 +1,280 @@
-import { useState } from "react";
-import PageShell from "@/components/site/PageShell";
-import PageHero from "@/components/site/PageHero";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Send, Zap, Headphones, Globe, Users, ArrowRight } from "lucide-react";
+import LocationsSection from "@/components/LocationsSection";
+import { Phone, Mail, MapPin, Send, User, Clock, Facebook, Linkedin } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { GradientBackground } from "@/components/GradientBackground";
+import { useState, useEffect } from "react";
+import { useToast } from "@/components/ui/use-toast";
+import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
+import { useContent } from "@/hooks/useContent";
+import { SeoHead } from "@/components/SeoHead";
 
-const offices = [
-  {
-    country: "Singapore",
-    company: "SHIPSOFT SOLUTIONS PTE. LTD.",
-    address: ["100 TRAS ST, #16-01", "SINGAPORE 079027"],
-    email: "sales@shipsoft.co",
-    phone: "+65 8606 5455",
-    mapQuery: "100+Tras+St+Singapore+079027",
-  },
-  {
-    country: "UAE",
-    company: "SHIPSOFT SOLUTIONS FZE",
-    address: ["SM-OFFICE-E1-1613B", "AJMAN FREE ZONE", "UNITED ARAB EMIRATES"],
-    email: "sales@shipsoft.co",
-    phone: "+971 43 704077",
-    mapQuery: "Ajman+Free+Zone+UAE",
-  },
-  {
-    country: "Saudi Arabia",
-    company: "SHIPSOFT COMPANY",
-    address: [
-      "Room-302, 3rd Floor",
-      "4073, Prince Mohammed Bin Fahd Road",
-      "Al Mazruiyah Dist., 32415-7135",
-      "Kingdom of Saudi Arabia",
-    ],
-    email: "sales@shipsoft.co",
-    phone: "+966 566 492 783",
-    mapQuery: "Prince+Mohammed+Bin+Fahd+Road+Al+Mazruiyah+Saudi+Arabia",
-  },
-  {
-    country: "India",
-    company: "SHIPSOFT INDIA",
-    address: [
-      "KAIZEN, 2nd & 3rd Floor,", 
-      "New No. G3 (Old No. G1), G Block, Plot No. 565Q, 18th Street, Chinthamani,",
-      "Anna Nagar East, Chennai 600102.",
-      "India",
-    ],
-    email: "sales@shipsoft.co",
-    phone: "+91 75300 54555",
-    mapQuery: "Anna+Nagar+East+Chennai",
-  },
-];
-
-const heroFeatures = [
-  { icon: Zap, title: "Quick Response", desc: "We reply within one business day." },
-  { icon: Headphones, title: "Expert Support", desc: "Talk to our logistics software experts." },
-  { icon: Globe, title: "Global Presence", desc: "Serving clients across multiple countries." },
-];
-
-const conversationItems = [
-  { icon: Send, title: "Request a Demo", desc: "See how Shipsoft can streamline your operations." },
-  { icon: Headphones, title: "Get Support", desc: "Our support team is here to help." },
-  { icon: Users, title: "Partnership Inquiries", desc: "Let's build something great together." },
-];
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+}
 
 const Contact = () => {
-  const [agree, setAgree] = useState(false);
+  const { toast } = useToast();
+  const { heroTitle, heroSubtitle, officeLocations, socialLinks } = useContent("contact_page");
+
+  const [formData, setFormData] = useState<FormData>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: ""
+  });
+
+  const [isPageLoaded, setIsPageLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsPageLoaded(true);
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Best-effort log to our own DB; the formsubmit.co request below is what
+    // actually delivers the email and drives the success/failure toast.
+    supabase.from("contact_submissions").insert({
+      first_name: formData.firstName,
+      last_name: formData.lastName,
+      email: formData.email,
+      phone: formData.phone,
+      subject: formData.subject,
+      message: formData.message,
+    }).catch(() => {});
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/info@orangeot.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success === "true") {
+        toast({
+          title: "Message Sent!",
+          description: "We'll get back to you as soon as possible.",
+          duration: 5000,
+        });
+
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: ""
+        });
+      } else {
+        toast({
+          title: "Submission Failed",
+          description: "Please try again or contact us directly.",
+          duration: 5000,
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Something went wrong",
+        description: "Unable to submit form. Try again later.",
+        duration: 5000,
+        variant: "destructive",
+      });
+    }
+  };
+
+  const socialIcons = {
+    facebook: (
+      <a
+        href={socialLinks.facebook}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
+      >
+        <Facebook size={20} />
+      </a>
+    ),
+    linkedin: (
+      <a
+        href={socialLinks.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
+      >
+        <Linkedin size={20} />
+      </a>
+    )
+  };
 
   return (
-    <PageShell showCTA={false}>
-      <PageHero
-        eyebrow="GROW YOUR BUSINESS WITH US"
-        title="Contact Shipsoft"
-        subtitle="Get in touch with us — we'd love to hear from you!"
-        features={heroFeatures}
-      />
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-white to-blue-50">
+      <SeoHead page="contact" />
+      <Header />
 
-      <section className="py-20 lg:py-24 bg-background">
-        <div className="container">
-
-          {/* Offices */}
-          <div className="space-y-6 mb-20">
-            {offices.map((o) => (
-              <div
-                key={o.country}
-                className="bg-card rounded-2xl shadow-card border border-border/50 overflow-hidden grid md:grid-cols-2"
-              >
-                <div className="p-7 lg:p-9">
-                  <div className="text-xs font-bold tracking-[0.2em] text-primary mb-3">
-                    {o.country.toUpperCase()}
-                  </div>
-                  <h3 className="font-bold text-xl mb-5">{o.company}</h3>
-
-                  <div className="flex gap-3 mb-4 text-sm text-muted-foreground">
-                    <MapPin className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                    <div>
-                      {o.address.map((l) => <div key={l}>{l}</div>)}
-                    </div>
-                  </div>
-
-                  <a href={`mailto:${o.email}`} className="flex items-center gap-3 text-sm mb-3">
-                    <Mail className="h-4 w-4 text-primary" /> {o.email}
-                  </a>
-
-                  <a href={`tel:${o.phone.replace(/\s+/g, "")}`} className="flex items-center gap-3 text-sm">
-                    <Phone className="h-4 w-4 text-primary" /> {o.phone}
-                  </a>
-                </div>
-
-                <div className="bg-muted min-h-[260px] relative">
-                  <iframe
-                    title={`${o.country} office map`}
-                    className="absolute inset-0 h-full w-full border-0"
-                    loading="lazy"
-                    src={`https://maps.google.com/maps?q=${o.mapQuery}&z=14&output=embed`}
-                  />
-                </div>
-              </div>
-            ))}
+      {/* Hero Section */}
+      <GradientBackground variant="primary" intensity="medium" animated className="pt-28 pb-16">
+        <section className="container mx-auto px-4 mt-20">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className={cn(
+              "font-heading font-bold text-4xl md:text-5xl lg:text-6xl mb-4 bg-gradient-to-r from-primary via-blue-600 to-sky-700 bg-clip-text text-transparent transform transition-all duration-700",
+              isPageLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            )}>
+              {heroTitle}
+            </h1>
+            <p className={cn(
+              "text-xl mb-6 text-gray-700 max-w-2xl mx-auto transform transition-all duration-700 delay-100",
+              isPageLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            )}>
+              {heroSubtitle}
+            </p>
           </div>
+        </section>
+      </GradientBackground>
 
-          {/* Contact Form */}
-          <form
-            action="https://formsubmit.co/sales@shipsoft.co"
-            method="POST"
-            className="bg-card rounded-2xl p-8 shadow-card border border-border/50 space-y-5"
-          >
-            {/* Hidden fields */}
-            <input type="hidden" name="_subject" value="New Contact Form Submission - Shipsoft" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
+      {/* Contact Section */}
+      <section className="py-16 -mt-10 relative z-10">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
 
-            <div className="grid sm:grid-cols-2 gap-5">
-              <div className="space-y-2">
-                <Label>Name *</Label>
-                <Input name="name" required placeholder="Enter your name" />
+            {/* Contact Form */}
+            <div className={cn("lg:col-span-3 transform transition-all duration-700 delay-200", isPageLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5")}>
+              <Card className="overflow-hidden border-none rounded-2xl shadow-2xl backdrop-blur-lg bg-white/90 hover:shadow-blue-200/20 hover:shadow-2xl transition-all duration-500">
+                <div className="bg-gradient-to-r from-primary to-blue-600 h-2"></div>
+                <CardContent className="p-6 md:p-8">
+                  <h2 className="font-heading font-bold text-2xl md:text-3xl mb-5 text-gray-800">Send Us a Message</h2>
+
+                  <form className="space-y-5" onSubmit={handleSubmit}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                      <div className="space-y-1 group">
+                        <label htmlFor="firstName" className="text-sm font-medium text-gray-700">First Name</label>
+                        <div className="relative">
+                          <Input id="firstName" name="firstName" placeholder="John" className="pl-10 bg-gray-50/50 border-gray-200 h-11" value={formData.firstName} onChange={handleInputChange} required />
+                          <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                        </div>
+                      </div>
+                      <div className="space-y-1 group">
+                        <label htmlFor="lastName" className="text-sm font-medium text-gray-700">Last Name</label>
+                        <div className="relative">
+                          <Input id="lastName" name="lastName" placeholder="Doe" className="pl-10 bg-gray-50/50 border-gray-200 h-11" value={formData.lastName} onChange={handleInputChange} required />
+                          <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-1 group">
+                      <label htmlFor="email" className="text-sm font-medium text-gray-700">Email Address</label>
+                      <div className="relative">
+                        <Input id="email" name="email" type="email" placeholder="you@example.com" className="pl-10 bg-gray-50/50 border-gray-200 h-11" value={formData.email} onChange={handleInputChange} required />
+                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                      </div>
+                    </div>
+
+                    <div className="space-y-1 group">
+                      <label htmlFor="phone" className="text-sm font-medium text-gray-700">Phone Number</label>
+                      <div className="relative">
+                        <Input id="phone" name="phone" placeholder="+91 98765 43210" className="pl-10 bg-gray-50/50 border-gray-200 h-11" value={formData.phone} onChange={handleInputChange} />
+                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                      </div>
+                    </div>
+
+                    <div className="space-y-1">
+                      <label htmlFor="subject" className="text-sm font-medium text-gray-700">Subject</label>
+                      <Input id="subject" name="subject" placeholder="How can we help you?" className="bg-gray-50/50 border-gray-200 h-11" value={formData.subject} onChange={handleInputChange} required />
+                    </div>
+
+                    <div className="space-y-1">
+                      <label htmlFor="message" className="text-sm font-medium text-gray-700">Your Message</label>
+                      <Textarea id="message" name="message" placeholder="Please provide details..." className="bg-gray-50/50 border-gray-200 min-h-[120px] resize-none" value={formData.message} onChange={handleInputChange} required />
+                    </div>
+
+                    <Button type="submit" className="w-full h-11 text-base group bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-sky-700 transition-all duration-300">
+                      <span className="relative z-10 flex items-center gap-2">
+                        Send Message
+                        <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      </span>
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Contact Info */}
+            <div className={cn("lg:col-span-2 space-y-6", isPageLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5")}>
+              <div>
+                <h2 className="font-heading font-bold text-2xl mb-5 text-gray-800">Our Offices</h2>
+                <div className="space-y-5 mb-6">
+                  {officeLocations.map((office, index) => (
+                    <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden group">
+                      <div className="h-1 bg-gradient-to-r from-primary to-blue-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                      <CardContent className="p-5">
+                        <h3 className="font-bold text-lg mb-2 flex items-center text-gray-800 group-hover:text-primary transition-colors">
+                          <MapPin className="h-5 w-5 text-primary mr-2" />
+                          {office.title}
+                        </h3>
+                        <div className="pl-7">
+                          <p className="text-gray-600 mb-2 text-sm">{office.description}</p>
+                          <div className="flex items-center text-gray-500 mb-1">
+                            <Clock className="h-4 w-4 mr-2 text-gray-400" />
+                            <span className="text-sm">{office.timing}</span>
+                          </div>
+                          <div className="flex items-center text-gray-500 mb-1">
+                            <Phone className="h-4 w-4 mr-2 text-gray-400" />
+                            <span className="text-sm">{office.phone}</span>
+                          </div>
+                          <div className="flex items-center text-gray-500">
+                            <Mail className="h-4 w-4 mr-2 text-gray-400" />
+                            <span className="text-sm">{office.email}</span>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
               </div>
 
-              <div className="space-y-2">
-                <Label>Email *</Label>
-                <Input name="email" type="email" required placeholder="Enter your email" />
-              </div>
+              <Card className="border-none shadow-lg bg-gradient-to-br from-primary to-blue-600 text-white">
+                <CardContent className="p-5">
+                  <h2 className="font-bold text-xl mb-3">Connect With Us</h2>
+                  <p className="text-white/90 mb-4 text-sm">Follow us on social media to stay updated</p>
+                  <div className="flex space-x-3">{socialIcons.facebook}{socialIcons.linkedin}</div>
+                </CardContent>
+              </Card>
             </div>
-
-            <div className="space-y-2">
-              <Label>Phone</Label>
-              <Input name="phone" type="tel" placeholder="Enter your phone number" />
-            </div>
-
-            <div className="space-y-2">
-              <Label>Message *</Label>
-              <Textarea name="message" required placeholder="Enter your message" rows={5} />
-            </div>
-
-            <label className="flex items-start gap-3 text-sm text-muted-foreground cursor-pointer">
-              <input
-                type="checkbox"
-                required
-                checked={agree}
-                onChange={(e) => setAgree(e.target.checked)}
-                className="mt-1 h-4 w-4"
-              />
-              I agree to the privacy policy.
-            </label>
-
-            <Button type="submit" variant="hero" size="lg" className="w-full sm:w-auto">
-              Send Message <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </form>
-
+          </div>
         </div>
       </section>
-    </PageShell>
+
+      <LocationsSection />
+
+      <Footer />
+    </div>
   );
 };
 
