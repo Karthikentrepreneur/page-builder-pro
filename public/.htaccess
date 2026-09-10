@@ -1,0 +1,23 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Proxy /api requests to local Node API server if mod_proxy is enabled
+  <IfModule mod_proxy.c>
+    RewriteRule ^api/(.*)$ http://127.0.0.1:3010/api/$1 [P,L]
+    RewriteRule ^storage/(.*)$ http://127.0.0.1:3010/storage/$1 [P,L]
+  </IfModule>
+
+  # Support SPA client-side routing
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !^/api/
+  RewriteCond %{REQUEST_URI} !^/storage/
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# Ensure PUT, POST, DELETE methods are not blocked by Apache
+<LimitExcept GET POST PUT DELETE OPTIONS>
+  Deny from all
+</LimitExcept>

@@ -8,6 +8,10 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    proxy: {
+      "/api": "http://localhost:3010",
+      "/storage": "http://localhost:3010",
+    },
     hmr: {
       overlay: false,
     },
