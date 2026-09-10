@@ -66,6 +66,20 @@ app.get('/api/health', async (_req, res) => {
   }
 });
 
+// --- geo detection ---
+app.get('/api/geo', (req, res) => {
+  const country =
+    req.headers['x-vercel-ip-country'] ||
+    req.headers['cf-ipcountry'] ||
+    req.headers['x-country-code'] ||
+    null;
+  const upper = country ? String(country).trim().toUpperCase() : null;
+  res.json({
+    country: upper,
+    isIndia: upper === 'IN',
+  });
+});
+
 // --- generic query endpoint used by the supabase-js shim ---
 app.post('/api/db', async (req, res) => {
   try {

@@ -9,6 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import logo from "@/assets/Shipsoft.webp";
+import { RegionSwitcher } from "@/contexts/RegionContext";
 
 const modules = [
   { label: "Customer Relationship Management", to: "/modules/crm" },
@@ -82,7 +83,8 @@ const Header = () => {
           </NavLink>
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
+          <RegionSwitcher />
           <Button variant="hero" size="lg" className="hidden md:inline-flex" asChild>
             <Link to="/contact">Request Demo</Link>
           </Button>
@@ -131,6 +133,10 @@ const Header = () => {
             >
               Contact Us
             </Link>
+            <div className="pt-2 border-t border-border flex items-center justify-between">
+              <span className="text-xs text-muted-foreground">Select Region:</span>
+              <RegionSwitcher />
+            </div>
           </nav>
         </div>
       )}

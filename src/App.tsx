@@ -5,9 +5,11 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "@/components/AuthContext";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { RegionProvider } from "@/contexts/RegionContext";
 
 // Website Pages
-import Index from "./pages/Index.tsx";
+import Index, { GlobalHome } from "./pages/Index.tsx";
+import IndiaHome from "./pages/IndiaHome.tsx";
 import About from "./pages/About.tsx";
 import Features from "./pages/Features.tsx";
 import Contact from "./pages/Contact.tsx";
@@ -48,14 +50,17 @@ const App = () => (
     <TooltipProvider>
       <AuthProvider>
         <ErrorBoundary>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <ScrollToTop />
-            <Routes>
-              {/* Main Website Routes */}
-              <Route path="/" element={<Index />} />
-              <Route path="/about" element={<About />} />
+          <RegionProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <ScrollToTop />
+              <Routes>
+                {/* Main Website Routes */}
+                <Route path="/" element={<Index />} />
+                <Route path="/india" element={<IndiaHome />} />
+                <Route path="/global" element={<GlobalHome />} />
+                <Route path="/about" element={<About />} />
               <Route path="/features" element={<Features />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/contact-us.php" element={<Contact />} />
@@ -91,6 +96,7 @@ const App = () => (
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
+          </RegionProvider>
         </ErrorBoundary>
       </AuthProvider>
     </TooltipProvider>
