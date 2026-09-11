@@ -48,10 +48,10 @@ const Footer = () => (
 
     <div className="border-t border-white/10">
       <div className="container py-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-sm">
-        <ContactBlock country="Singapore" lines={["100 TRAS ST, #16-01", "SINGAPORE 079027"]} email="sales@shipsoft.co" phone="+65 3158 0494" />
-        <ContactBlock country="UAE" lines={["SM-OFFICE-E1-1613B", "AJMAN FREE ZONE", "UNITED ARAB EMIRATES"]} email="sales@shipsoft.co" phone="+971 43 704077" />
-        <ContactBlock country="Saudi Arabia" lines={["Room-302, 3rd Floor", "4073, Prince Mohammed Bin Fahd Rd", "Al Mazruiyah Dist., 32415-7135", "Kingdom of Saudi Arabia"]} email="sales@shipsoft.co" phone="+966 566 492 783" />
-        <ContactBlock country="India" lines={["KAIZEN, 2nd & 3rd Floor, New No. G3 (Old No. G1), G Block, Plot No. 565Q, 18th Street, Chinthamani, Anna Nagar East, Chennai 600102.", "India"]} email="sales@shipsoft.co" phone="+91 75300 54555" />
+        <ContactBlock country="Singapore" lines={["100 TRAS ST, #16-01", "SINGAPORE 079027"]} email="info@shipsoft.co" phone="+65 31580494" />
+        <ContactBlock country="UAE" lines={["SM-OFFICE-E1-1613B", "AJMAN FREE ZONE", "UNITED ARAB EMIRATES"]} email="info@shipsoft.co" phone="+971 43 704077" />
+        <ContactBlock country="Saudi Arabia" lines={["Room-302, 3rd Floor", "4073, Prince Mohammed Bin Fahd Rd", "Al Mazruiyah Dist., 32415-7135", "Kingdom of Saudi Arabia"]} email="info@shipsoft.co" phone="+966 566 492 783" />
+        <ContactBlock country="India" lines={["KAIZEN, 2nd & 3rd Floor, New No. G3 (Old No. G1), G Block, Plot No. 565Q, 18th Street, Chinthamani, Anna Nagar East, Chennai 600102.", "India"]} email="info@shipsoft.co" phone="+91 98400 63530" />
       </div>
     </div>
 
