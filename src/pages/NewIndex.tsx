@@ -25,6 +25,13 @@ const Index = () => {
 
   // Handle scroll for parallax effects
   useEffect(() => {
+    if (typeof window !== "undefined" && window.location.pathname.startsWith("/india")) {
+      try {
+        localStorage.setItem("user_is_india", "true");
+      } catch (e) {
+        void e;
+      }
+    }
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };

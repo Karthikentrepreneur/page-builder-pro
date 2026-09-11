@@ -19,21 +19,27 @@ const modules = [
   { label: "Distribution Management System", to: "/modules/distribution" },
 ];
 
-const navItems = [
-  { label: "Home", to: "/" },
-  { label: "About Us", to: "/about" },
-  { label: "Features", to: "/features" },
-];
-
 const Header = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const isGlobal = location.pathname.startsWith("/global");
   const isModuleActive = location.pathname.startsWith("/modules");
+
+  const homePath = isGlobal ? "/global" : "/";
+  const aboutPath = isGlobal ? "/global/about" : "/about";
+  const featuresPath = isGlobal ? "/global/features" : "/features";
+  const contactPath = isGlobal ? "/global/contact" : "/contact";
+
+  const navItems = [
+    { label: "Home", to: homePath },
+    { label: "About Us", to: aboutPath },
+    { label: "Features", to: featuresPath },
+  ];
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
       <div className="container flex h-20 items-center justify-between">
-        <Link to="/" className="flex items-center">
+        <Link to={homePath} className="flex items-center">
           <img src={logo} alt="Shipsoft — Empowered by Software Innovation" className="h-16 w-auto" />
         </Link>
 
@@ -71,7 +77,7 @@ const Header = () => {
           </DropdownMenu>
 
           <NavLink
-            to="/contact"
+            to={contactPath}
             className={({ isActive }) =>
               `text-sm font-medium transition-colors hover:text-primary ${
                 isActive ? "text-primary border-b-2 border-primary pb-1" : "text-foreground/80"
@@ -84,7 +90,7 @@ const Header = () => {
 
         <div className="flex items-center gap-2">
           <Button variant="hero" size="lg" className="hidden md:inline-flex" asChild>
-            <Link to="/contact">Request Demo</Link>
+            <Link to={contactPath}>Request Demo</Link>
           </Button>
           <button
             className="lg:hidden p-2 -mr-2"
@@ -125,7 +131,7 @@ const Header = () => {
               </div>
             </div>
             <Link
-              to="/contact"
+              to={contactPath}
               onClick={() => setOpen(false)}
               className="py-2 text-sm font-medium text-foreground/80 hover:text-primary"
             >

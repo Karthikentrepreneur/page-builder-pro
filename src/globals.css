@@ -30,6 +30,28 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 204 94% 42%;
     --radius: 0.5rem;
+
+    /* Global ERP logistics palette */
+    --navy: 222 60% 12%;
+    --navy-deep: 224 71% 8%;
+    --surface-soft: 220 30% 97%;
+    --primary-glow: 210 100% 65%;
+
+    /* Category colors for solution icons */
+    --cat-blue: 217 91% 55%;
+    --cat-violet: 258 83% 60%;
+    --cat-green: 152 60% 45%;
+    --cat-orange: 32 95% 55%;
+    --cat-purple: 280 70% 55%;
+    --cat-pink: 350 85% 62%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 55%), hsl(210 100% 65%));
+    --gradient-navy: linear-gradient(135deg, hsl(224 71% 8%), hsl(222 60% 14%));
+    --gradient-cta: linear-gradient(90deg, #0284c7, #38bdf8);
+
+    --shadow-soft: 0 4px 20px -4px hsl(204 94% 42% / 0.18);
+    --shadow-card: 0 8px 30px -10px hsl(222 47% 11% / 0.08);
+    --shadow-float: 0 20px 50px -15px hsl(222 47% 11% / 0.18);
   }
  
   .dark {
@@ -50,6 +72,17 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 204 94% 48%;
+
+    --navy: 222 60% 12%;
+    --navy-deep: 224 71% 6%;
+    --surface-soft: 224 71% 10%;
+    --primary-glow: 210 100% 65%;
+    --cat-blue: 217 91% 60%;
+    --cat-violet: 258 83% 65%;
+    --cat-green: 152 60% 50%;
+    --cat-orange: 32 95% 60%;
+    --cat-purple: 280 70% 60%;
+    --cat-pink: 350 85% 65%;
   }
 
   * {

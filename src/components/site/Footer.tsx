@@ -36,7 +36,7 @@ const Footer = () => (
         { label: "e-Commerce", to: "/modules/distribution" },
       ]} />
       <FooterCol title="Company" links={[
-        { label: "Home", to: "#" },
+        { label: "Home", to: "/" },
         { label: "About Us", to: "/about" },
         { label: "Features", to: "/features" },
         { label: "Contact Us", to: "/contact" },
@@ -56,8 +56,13 @@ const Footer = () => (
     </div>
 
     <div className="border-t border-white/10">
-      <div className="container py-5 text-center text-xs text-white/50">
-        © 2025 Shipsoft Solutions Pte. Ltd. All Rights Reserved.
+      <div className="container py-5 flex flex-col sm:flex-row items-center justify-between text-xs text-white/50 gap-2">
+        <div>© 2025 Shipsoft Solutions Pte. Ltd. All Rights Reserved.</div>
+        <div>
+          <Link to="/india" className="text-white/70 hover:text-white underline transition-colors">
+            Shipsoft Solutions India Services →
+          </Link>
+        </div>
       </div>
     </div>
   </footer>

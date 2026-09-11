@@ -7,7 +7,17 @@ import Testimonials from "@/components/site/Testimonials";
 import CTA from "@/components/site/CTA";
 import Footer from "@/components/site/Footer";
 
+import { useEffect } from "react";
+
 const Index = () => {
+  useEffect(() => {
+    try {
+      localStorage.setItem("user_is_india", "false");
+    } catch (e) {
+      void e;
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />

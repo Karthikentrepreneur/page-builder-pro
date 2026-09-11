@@ -52,6 +52,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        navy: {
+          DEFAULT: "hsl(var(--navy))",
+          deep: "hsl(var(--navy-deep))",
+        },
+        "primary-glow": "hsl(var(--primary-glow))",
+        "surface-soft": "hsl(var(--surface-soft))",
       },
       fontFamily: {
         heading: ["Poppins", "sans-serif"],
@@ -161,6 +167,8 @@ export default {
         glass: "0 4px 30px rgba(0, 0, 0, 0.1)",
         hover: "0 10px 40px -15px rgba(0, 0, 0, 0.15)",
         card: "0 7px 20px rgba(0, 0, 0, 0.05)",
+        soft: "var(--shadow-soft)",
+        float: "var(--shadow-float)",
         "silver-glow": "0 0 15px rgba(159, 158, 161, 0.7)",
       },
       backdropBlur: {
@@ -168,6 +176,9 @@ export default {
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-primary": "var(--gradient-primary)",
+        "gradient-navy": "var(--gradient-navy)",
+        "gradient-cta": "var(--gradient-cta)",
         "hero-gradient": "linear-gradient(135deg, #303030 0%, #505050 100%)",
         "card-gradient": "linear-gradient(to bottom, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05))",
         "silver-shine": "linear-gradient(90deg, transparent, rgba(159, 158, 161, 0.3), transparent)",

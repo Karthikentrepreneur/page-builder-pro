@@ -12,7 +12,19 @@ import Index from "./pages/Index";
 import NewIndex from "./pages/NewIndex";
 import OldIndex from "./pages/OldIndex";
 
-// Pages from New Website
+// Dynamic wrappers
+import AboutWrapper from "./pages/AboutWrapper";
+import ContactWrapper from "./pages/ContactWrapper";
+
+// Global Website Pages
+import GlobalAbout from "./pages/global/GlobalAbout";
+import GlobalContact from "./pages/global/GlobalContact";
+import Features from "./pages/Features";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import ScrollToTop from "./components/site/ScrollToTop";
+
+// Pages from India Website
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Documentation from "./pages/services/Documentation";
@@ -49,14 +61,33 @@ const App: React.FC = () => (
             <Toaster />
             <Sonner />
             <BrowserRouter>
+              <ScrollToTop />
               <Routes>
-                {/* Root Route: Shows New Page for India, Old Page otherwise */}
+                {/* Dynamic Region-Aware Routes (India for Indian visitors, Global ERP for Global visitors) */}
                 <Route path="/" element={<Index />} />
-                <Route path="/india" element={<NewIndex />} />
-                <Route path="/global" element={<OldIndex />} />
+                <Route path="/about" element={<AboutWrapper />} />
+                <Route path="/contact" element={<ContactWrapper />} />
+                <Route path="/contact-us.php" element={<ContactWrapper />} />
 
-                {/* New Website Routes */}
-                <Route path="/about" element={<About />} />
+                {/* Explicit India Routes */}
+                <Route path="/india" element={<NewIndex />} />
+                <Route path="/india/about" element={<About />} />
+                <Route path="/india/contact" element={<Contact />} />
+
+                {/* Explicit Global Routes */}
+                <Route path="/global" element={<OldIndex />} />
+                <Route path="/global/about" element={<GlobalAbout />} />
+                <Route path="/global/features" element={<Features />} />
+                <Route path="/global/contact" element={<GlobalContact />} />
+                <Route path="/global/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/global/terms-and-conditions" element={<TermsAndConditions />} />
+
+                {/* Global ERP Product & Legal Routes */}
+                <Route path="/features" element={<Features />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+
+                {/* India Website Services & Company Routes */}
                 <Route path="/services" element={<Services />} />
                 <Route path="/services/documentation" element={<Documentation />} />
                 <Route path="/services/salessupport" element={<SalesSupport />} />
@@ -65,15 +96,13 @@ const App: React.FC = () => (
                 <Route path="/services/SoftwareSolutions" element={<SoftwareSolutions />} />
                 <Route path="/careers" element={<Careers />} />
                 <Route path="/clients" element={<Clients />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/contact-us.php" element={<Contact />} />
                 <Route path="/our-team" element={<Founders />} />
                 <Route path="/employees-corner" element={<EmployeesCorner />} />
                 <Route path="/admin" element={<Navigate to="/admin/login" replace />} />
                 <Route path="/admin/login" element={<AdminLogin />} />
                 <Route path="/admin/editor" element={<AdminEditor />} />
 
-                {/* Old Website ERP Module Routes */}
+                {/* Global Website ERP Module Routes */}
                 <Route path="/modules/crm" element={<CRM />} />
                 <Route path="/modules/freight" element={<Freight />} />
                 <Route path="/modules/warehouse" element={<Warehouse />} />
